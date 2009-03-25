@@ -39,10 +39,10 @@ module Authlogic
         
         # The name of the associated session class. This is inferred by the name of the model.
         #
-        # * <tt>Default:</tt> "#{klass.name}Session".constantize
+        # * <tt>Default:</tt> "#{base_class.name}Session".constantize
         # * <tt>Accepts:</tt> Class
         def session_class(value = nil)
-          const = "#{name}Session".constantize rescue nil
+          const = "#{base_class.name}Session".constantize rescue nil
           config(:session_class, value, const)
         end
         alias_method :session_class=, :session_class
